@@ -21,10 +21,11 @@ fmt.Println(s.Peek())
 ```
 
 ## Changelog
-### v1.0.0
+### v0.1.0
 - minimal supported version of Go is 1.20
+- initial implementation
 
-### v2.0.0
+### v1.0.0
 - minimal supported version of Go is 1.23
 - added `Iter` method to iterate over the queue and consume all items
 ```go
