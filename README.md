@@ -19,3 +19,23 @@ fmt.Println(s.Peek())
 // 4
 // 5
 ```
+
+## Changelog
+### v1.0.0
+- minimal supported version of Go is 1.20
+
+### v2.0.0
+- minimal supported version of Go is 1.23
+- added `Iter` method to iterate over the queue and consume all items
+```go
+s := gqueue.New(1, 2, 3, 4)
+for v := range s.Iter() {
+    fmt.Println(v)
+}
+fmt.Println("len:", s.Len())
+// Output: 1
+// 2
+// 3
+// 4
+// len: 0
+```

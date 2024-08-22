@@ -2,8 +2,9 @@ package gqueue_test
 
 import (
 	"fmt"
-	"github.com/sv-tools/gqueue"
 	"testing"
+
+	"github.com/sv-tools/gqueue"
 )
 
 func TestQueue(t *testing.T) {
@@ -51,6 +52,20 @@ func TestGSQueue_New(t *testing.T) {
 	}
 }
 
+func TestGSQueue_Iter(t *testing.T) {
+	s := gqueue.New(1, 2, 3, 4)
+	i := 1
+	for v := range s.Iter() {
+		if v != i {
+			t.Fatalf("expected %d as item, but got %v", i, v)
+		}
+		i++
+	}
+	if s.Len() != 0 {
+		t.Fatalf("expected empty queue, but got %d items", s.Len())
+	}
+}
+
 func ExampleGQueue() {
 	s := gqueue.New(1, 2, 3, 4)
 	fmt.Println(s.Len())
@@ -66,4 +81,17 @@ func ExampleGQueue() {
 	// 3
 	// 4
 	// 5
+}
+
+func ExampleGQueue_Iter() {
+	s := gqueue.New(1, 2, 3, 4)
+	for v := range s.Iter() {
+		fmt.Println(v)
+	}
+	fmt.Println("len:", s.Len())
+	// Output: 1
+	// 2
+	// 3
+	// 4
+	// len: 0
 }
