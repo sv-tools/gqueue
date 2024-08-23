@@ -105,3 +105,8 @@ func (s *GQueue[T]) Iter() iter.Seq[T] {
 		}
 	}
 }
+
+// IsEmpty returns true if the queue is empty
+func (s *GQueue[T]) IsEmpty() bool {
+	return s.head == nil
+}
