@@ -1,7 +1,14 @@
 # gqueue
-Generic Queue implementation in Go using linked list
+
+Generic Queue implementation in Go using linked list.
+
+The repository is archived because the feature is fully implemented.
 
 ## Usage
+
+```shell
+go get github.com/sv-tools/gqueue
+```
 
 ```go
 s := gqueue.New(1, 2, 3, 4)
